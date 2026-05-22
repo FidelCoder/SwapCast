@@ -6,7 +6,7 @@ export type MiniAppEmbed = {
   button: {
     title: string;
     action: {
-      type: "launch_miniapp" | "launch_frame";
+      type: "launch_miniapp";
       url: string;
       name: string;
       splashImageUrl: string;
@@ -46,25 +46,9 @@ export function createMiniAppEmbed({
   };
 }
 
-export function createLegacyFrameEmbed(options: EmbedOptions): MiniAppEmbed {
-  const embed = createMiniAppEmbed(options);
-
-  return {
-    ...embed,
-    button: {
-      ...embed.button,
-      action: {
-        ...embed.button.action,
-        type: "launch_frame"
-      }
-    }
-  };
-}
-
 export function createMetadataOther(options: EmbedOptions) {
   return {
-    "fc:miniapp": JSON.stringify(createMiniAppEmbed(options)),
-    "fc:frame": JSON.stringify(createLegacyFrameEmbed(options))
+    "fc:miniapp": JSON.stringify(createMiniAppEmbed(options))
   };
 }
 

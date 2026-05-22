@@ -15,16 +15,16 @@ export function GET() {
           background: "#f5f7fb",
           color: "#101318",
           fontFamily: "Inter, Arial, sans-serif",
-          fontSize: "74px",
+          fontSize: "72px",
           fontWeight: 900
         }}
       >
-        SwapCast
+        SC
       </div>
     ),
     {
-      width: 1024,
-      height: 1024
+      width: 200,
+      height: 200
     }
   );
 }
