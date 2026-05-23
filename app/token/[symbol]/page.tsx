@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Gem } from "lucide-react";
 import { notFound } from "next/navigation";
 import { AnalyticsOnView } from "@/components/AnalyticsOnView";
+import { FarcasterWalletStatus } from "@/components/FarcasterWalletStatus";
 import { OmnistonWidget } from "@/components/OmnistonWidget";
 import { ShareButton } from "@/components/ShareButton";
 import { absoluteUrl } from "@/lib/app";
@@ -81,7 +82,7 @@ export default function TokenPage({ params }: TokenPageProps) {
           label="Cast"
         />
       </div>
-
+      <FarcasterWalletStatus />
       <OmnistonWidget
         analyticsContext="token"
         defaultBidAsset={token.defaultBidAsset}

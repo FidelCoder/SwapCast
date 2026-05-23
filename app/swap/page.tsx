@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Boxes } from "lucide-react";
 import { AnalyticsOnView } from "@/components/AnalyticsOnView";
+import { FarcasterWalletStatus } from "@/components/FarcasterWalletStatus";
 import { OmnistonWidget } from "@/components/OmnistonWidget";
 import { ShareButton } from "@/components/ShareButton";
 import { absoluteUrl } from "@/lib/app";
@@ -46,7 +47,7 @@ export default function SwapPage() {
           text="Trying SwapCast, a Farcaster Mini App for STON.fi Omniston swaps on TON."
         />
       </div>
-
+      <FarcasterWalletStatus />
       <OmnistonWidget analyticsContext="generic" />
     </div>
   );

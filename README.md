@@ -13,6 +13,7 @@ The app intentionally does not implement swap routing, fake execution, auth, dat
 - Same-domain `/tonconnect-manifest.json` for standalone TonConnect mode.
 - Generic `/swap` page and preset `/token/[symbol]` pages.
 - Farcaster share/cast action with browser fallback.
+- Farcaster EVM wallet detection and connect UI for Mini App hosts.
 - Client-side analytics events:
   - `app_opened`
   - `swap_page_opened`
@@ -80,6 +81,7 @@ SwapCast demonstrates STON.fi widget distribution inside Farcaster:
 - SwapCast embeds the official Omniston widget rather than implementing routing.
 - TonConnect is initialized through the widget's standalone integration flow.
 - Share buttons compose a new cast with the current swap page URL.
+- Farcaster wallet connection shows the user's EVM address, while Omniston still uses TonConnect for TON swap signing.
 
 Analytics are deliberately lightweight for MVP review. In development they log to the console and always dispatch a `swapcast:analytics` browser event that can be picked up by a later analytics adapter.
 

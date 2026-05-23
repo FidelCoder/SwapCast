@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { FarcasterReady } from "@/components/FarcasterReady";
+import { FarcasterWalletButton } from "@/components/FarcasterWalletButton";
+import { FarcasterWalletProvider } from "@/components/FarcasterWalletProvider";
 import { APP_DESCRIPTION, APP_NAME, absoluteUrl, getAppUrl } from "@/lib/app";
 import { createMetadataOther } from "@/lib/miniapp";
 
@@ -49,27 +51,31 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <FarcasterReady />
-        <div className="app-frame">
-          <header className="top-nav">
-            <div className="top-nav-inner">
-              <Link className="brand-link" href="/">
-                <span className="brand-mark">SC</span>
-                <span>{APP_NAME}</span>
-              </Link>
-              <nav className="nav-links" aria-label="Primary">
-                <Link className="nav-link" href="/swap">
-                  Swap
+        <FarcasterWalletProvider>
+          <div className="app-frame">
+            <header className="top-nav">
+              <div className="top-nav-inner">
+                <Link className="brand-link" href="/">
+                  <span className="brand-mark">SC</span>
+                  <span>{APP_NAME}</span>
                 </Link>
-                <Link className="nav-link" href="/about">
-                  About
-                </Link>
-              </nav>
-            </div>
-          </header>
-          <main className="page-main">{children}</main>
-        </div>
+                <div className="nav-actions">
+                  <nav className="nav-links" aria-label="Primary">
+                    <Link className="nav-link" href="/swap">
+                      Swap
+                    </Link>
+                    <Link className="nav-link" href="/about">
+                      About
+                    </Link>
+                  </nav>
+                  <FarcasterWalletButton />
+                </div>
+              </div>
+            </header>
+            <main className="page-main">{children}</main>
+          </div>
+        </FarcasterWalletProvider>
       </body>
     </html>
   );
 }
-
